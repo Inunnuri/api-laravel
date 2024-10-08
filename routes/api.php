@@ -7,8 +7,6 @@ use App\Http\Controllers\Auth\RegisterController;
 
 //menambah pengguna
 Route::post('/register', [RegisterController::class, 'register']);
-
-
 //untuk membuat token
 Route::post('/login', [LoginController::class, 'login']);
 //menghapus token

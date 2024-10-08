@@ -10,10 +10,11 @@ class TaskController extends Controller
 {
     public function index(Request $request)
     {
-        // $user = $request->user(); // Ini akan mendapatkan pengguna yang terautentikasi
+        $request->user(); // Ini akan mendapatkan pengguna yang terautentikasi
         // $tasks = Task::where('user_id', $user->id)->get();
         // // return response()->json($tasks);
         // return TaskResource::collection($tasks);
+        return response()->json(200);
     }
 
 
