@@ -14,16 +14,12 @@ class StatusSeeder extends Seeder
     public function run(): void
     {
         Status::create([
-            'name' => 'Plan',
-            'color' => '#fee2e2'
-        ]);
-        Status::create([
-            'name' => 'Progress',
+            'name' => 'Available',
             'color' => '#dbeafe'
         ]);
         Status::create([
-            'name' => 'Completed',
-            'color' => '#cffafe'
+            'name' => 'Sold Out',
+            'color' => '#fee2e2'
         ]);
     }
 }
