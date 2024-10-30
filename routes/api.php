@@ -7,7 +7,7 @@ use App\Http\Controllers\Product\ProductController;
 
 //menambah pengguna
 Route::post('/register', [RegisterController::class, 'register']);
-//untuk membuat token
+//untuk membuat token bagi user yang sudah ada
 Route::post('/login', [LoginController::class, 'login']);
 //menghapus token
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
