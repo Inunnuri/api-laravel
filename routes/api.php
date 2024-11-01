@@ -1,11 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\ProductController;
 
 //menambah pengguna
 Route::post('/register', [RegisterController::class, 'register']);
@@ -17,8 +15,5 @@ Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'log
 
 Route::middleware('auth:sanctum')->group(function(){
      //Product endpoints
-     Route::get('/products', [ProductController::class, 'index']);
-     Route::post('/products', [ProductController::class, 'store']);
-     Route::post('/products/{id}', [ProductController::class, 'update']);
-     Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+     Route::apiResource('products', ProductController::class);
 });
