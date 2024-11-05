@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
+use App\Http\Resources\ProductCollection;
+use App\Http\Resources\ProductResource;
 
 class ProductController extends Controller
 {
@@ -16,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return response()->json($products, 200);
+        return new ProductCollection($products, 200);
     }
 
     /**

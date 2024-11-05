@@ -16,4 +16,21 @@ class Product extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    //relasi/ hubungkan tabel category
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+    //relasi/hubungkan tabel brand
+    public function brand(){
+        return $this->belongsTo(Brand::class);
+    }
+    //relasi/hubungkan tabel type
+    public function type(){
+        return $this->belongsTo(Type::class);
+    }
+    //relasi/hubungkan tabel status
+    public function status(){
+        return $this->belongsTo(Status::class);
+    }
 }
