@@ -18,8 +18,10 @@ class RegisterController extends Controller
             'password' => ['required','string','min:8','confirmed'],
         ]);
 
-        if($validator->fails()){
-            return response()->json($validator->errors(),400);
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors()
+            ], 400);  // Gunakan 400 untuk bad request
         }
 
         //buat usernya
@@ -37,6 +39,8 @@ class RegisterController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'Bearer',
+            'message' => 'Registrasi berhasil.',
+            'redirect' => 'http://motoride.test/products' 
         ], 201);
     }
     

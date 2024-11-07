@@ -22,6 +22,19 @@ class ProductController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $product = Product::find($id);
+        if (!$product){
+            return response()->json(['message' => 'Product not found'], 404);
+        }
+
+        return new ProductResource($product, 200);
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(ProductStoreRequest $request)
@@ -51,18 +64,7 @@ class ProductController extends Controller
         return response()->json(['message' => 'Product created successfully', 'product' => $product], 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $product = Product::find($id);
-        if (!$product){
-            return response()->json(['message' => 'Product not found'], 404);
-        }
-
-        return response()->json($product, 200);
-    }
+    
 
     /**
      * Update the specified resource in storage.
